@@ -1,0 +1,35 @@
+[1.144s] Invoking command in '/home/joudy/task7/src/turtle_control': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/joudy/task7/build/turtle_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/joudy/task7/install/turtle_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/turtle_control build --build-base /home/joudy/task7/build/turtle_control/build install --record /home/joudy/task7/build/turtle_control/install.log --install-scripts $base/lib/turtle_control --single-version-externally-managed install_data
+[1.499s] running egg_info
+[1.500s] creating ../../build/turtle_control/turtle_control.egg-info
+[1.531s] writing ../../build/turtle_control/turtle_control.egg-info/PKG-INFO
+[1.532s] writing dependency_links to ../../build/turtle_control/turtle_control.egg-info/dependency_links.txt
+[1.532s] writing requirements to ../../build/turtle_control/turtle_control.egg-info/requires.txt
+[1.532s] writing top-level names to ../../build/turtle_control/turtle_control.egg-info/top_level.txt
+[1.532s] writing manifest file '../../build/turtle_control/turtle_control.egg-info/SOURCES.txt'
+[1.576s] reading manifest file '../../build/turtle_control/turtle_control.egg-info/SOURCES.txt'
+[1.577s] writing manifest file '../../build/turtle_control/turtle_control.egg-info/SOURCES.txt'
+[1.577s] running build
+[1.577s] running build_py
+[1.578s] creating /home/joudy/task7/build/turtle_control/build
+[1.578s] creating /home/joudy/task7/build/turtle_control/build/lib
+[1.578s] creating /home/joudy/task7/build/turtle_control/build/lib/turtle_control
+[1.579s] copying turtle_control/major_node.py -> /home/joudy/task7/build/turtle_control/build/lib/turtle_control
+[1.579s] copying turtle_control/__init__.py -> /home/joudy/task7/build/turtle_control/build/lib/turtle_control
+[1.579s] running install
+[1.587s] running install_lib
+[1.611s] creating /home/joudy/task7/install/turtle_control/lib/python3.12/site-packages/turtle_control
+[1.611s] copying /home/joudy/task7/build/turtle_control/build/lib/turtle_control/major_node.py -> /home/joudy/task7/install/turtle_control/lib/python3.12/site-packages/turtle_control
+[1.611s] copying /home/joudy/task7/build/turtle_control/build/lib/turtle_control/__init__.py -> /home/joudy/task7/install/turtle_control/lib/python3.12/site-packages/turtle_control
+[1.614s] byte-compiling /home/joudy/task7/install/turtle_control/lib/python3.12/site-packages/turtle_control/major_node.py to major_node.cpython-312.pyc
+[1.648s] byte-compiling /home/joudy/task7/install/turtle_control/lib/python3.12/site-packages/turtle_control/__init__.py to __init__.cpython-312.pyc
+[1.648s] running install_data
+[1.648s] creating /home/joudy/task7/install/turtle_control/share/ament_index
+[1.648s] creating /home/joudy/task7/install/turtle_control/share/ament_index/resource_index
+[1.648s] creating /home/joudy/task7/install/turtle_control/share/ament_index/resource_index/packages
+[1.648s] copying resource/turtle_control -> /home/joudy/task7/install/turtle_control/share/ament_index/resource_index/packages
+[1.648s] copying package.xml -> /home/joudy/task7/install/turtle_control/share/turtle_control
+[1.648s] running install_egg_info
+[1.681s] Copying ../../build/turtle_control/turtle_control.egg-info to /home/joudy/task7/install/turtle_control/lib/python3.12/site-packages/turtle_control-0.0.0-py3.12.egg-info
+[1.682s] running install_scripts
+[1.861s] writing list of installed files to '/home/joudy/task7/build/turtle_control/install.log'
+[1.896s] Invoked command in '/home/joudy/task7/src/turtle_control' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/joudy/task7/build/turtle_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/joudy/task7/install/turtle_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/turtle_control build --build-base /home/joudy/task7/build/turtle_control/build install --record /home/joudy/task7/build/turtle_control/install.log --install-scripts $base/lib/turtle_control --single-version-externally-managed install_data
