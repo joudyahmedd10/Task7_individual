@@ -13,7 +13,7 @@ class TurtleControl(Node):
     def __init__(self):
         super().__init__('major_node')
         #declaring the values so its not hard coded 
-        self.declare_parameter('cmd_vel_topic','/cmd_vel')
+        self.declare_parameter('cmd_vel_topic','/turtle1/cmd_vel')
         cmd_vel_topic= self.get_parameter('cmd_vel_topic').value
         self.declare_parameter('color_sensor_topic','/turtle1/color_sensor')
         color_sensor_topic = self.get_parameter('color_sensor_topic').value
