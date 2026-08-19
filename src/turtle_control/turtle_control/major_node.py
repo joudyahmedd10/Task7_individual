@@ -1,6 +1,8 @@
 import rclpy
 from rclpy import Node
 from geometry_msgs.msg import Twist
+from turtlesim.msg import Color
+from std_msgs.msg import String
 import sys
 import select
 import termios
@@ -10,14 +12,22 @@ import tty
 class TurtleControl(Node):
     def __init__(self):
         super().__init__('major_node')
+        #declaring the values so its not hard coded 
         self.declare_parameter('cmd_vel_topic','/cmd_vel')
         cmd_vel_topic= self.get_parameter('cmd_vel_topic').value
+        self.declare_parameter('color_sensor_topic','/turtle1/color_sensor')
+        color_sensor_topic = self.get_parameter('color_sensor_topic').value
+        self.declare_parameter('dominant_color_topic','/dominant_color')
+        dominant_color_topic = self.get_parameter('dominant_color_topic').value
 
-        self.publisher= self.create_publisher(Twist,cmd_vel_topic,10)
+        self.publisher= self.create_publisher(Twist,cmd_vel_topic,10) #puplishing velocity topic
         self.timer = self.create_timer(0.1,self.keyboard_callback)
         self.settings = termios.tcgetattr(sys.stdin)
         self.get_logger().info('Use W for forward,A for backward,S to turn right,D to turn left')
-
+    #subscriping to color sensor
+        self.subscription = self.create_subscription( Color, color_sensor_topic, self.color_callback, 10)
+    # publishing the dominant colour to another topic
+        self.color_publisher = self.create_publisher(String,dominant_color_topic,10)
 
 
     
