@@ -1,5 +1,5 @@
 import rclpy
-from rclpy import Node
+from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Color
 from std_msgs.msg import String
@@ -20,9 +20,10 @@ class TurtleControl(Node):
         self.declare_parameter('dominant_color_topic','/dominant_color')
         dominant_color_topic = self.get_parameter('dominant_color_topic').value
 
-        self.publisher= self.create_publisher(Twist,cmd_vel_topic,10) #puplishing velocity topic
+        self.publisher = self.create_publisher(Twist,cmd_vel_topic,10) #puplishing velocity topic
         self.timer = self.create_timer(0.1,self.keyboard_callback)
         self.settings = termios.tcgetattr(sys.stdin)
+        tty.setcbreak(sys.stdin.fileno())
         self.get_logger().info('Use W for forward,A for backward,S to turn right,D to turn left')
     #subscriping to color sensor
         self.subscription = self.create_subscription( Color, color_sensor_topic, self.color_callback, 10)
@@ -33,18 +34,14 @@ class TurtleControl(Node):
     
 
     def get_key(self):
-        tty.setcbreak(sys.stdin.fileno())
-        key = None
+        
+         
         if select.select([sys.stdin], [], [], 0)[0]:
             key = sys.stdin.read(1)
 
-        termios.tcsetattr(
-            sys.stdin,
-            termios.TCSADRAIN,
-            self.settings
-        )
-
-        return key
+    
+            return key
+        return None
     def keyboard_callback(self):
 
         key = self.get_key()
@@ -53,6 +50,7 @@ class TurtleControl(Node):
             return
   
         msg = Twist()
+        self.get_logger().info(f'key pressed :{key}')
  
         if key.lower() == 'w':
             msg.linear.x = 2.0
@@ -73,6 +71,7 @@ class TurtleControl(Node):
         else:
             return
         self.publisher.publish(msg)
+        
     def color_callback(self, msg): #to get color feedback
        red = msg.r
        green = msg.g
@@ -99,7 +98,7 @@ def main():
     node = TurtleControl()
 
 
-    rclpy.spin(node)
+     
     try:
         rclpy.spin(node)
 
