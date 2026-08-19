@@ -73,6 +73,24 @@ class TurtleControl(Node):
         else:
             return
         self.publisher.publish(msg)
+    def color_callback(self, msg): #to get color feedback
+       red = msg.r
+       green = msg.g
+       blue = msg.b
+ #finding the dominant color
+       if red >= green and red >= blue:
+         major_color = "RED"
+
+       elif green >= red and green >= blue:
+         major_color = "GREEN"
+
+       else:
+         major_color = "BLUE"
+
+       self.get_logger().info(f"Major color: {major_color}")
+       color_msg = String()
+       color_msg.data = major_color
+       self.color_publisher.publish(color_msg)
 
 
 
